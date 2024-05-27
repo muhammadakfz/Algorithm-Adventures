@@ -1,0 +1,1 @@
+{"name":"Local: erase","url":"c:\\Users\\muham\\OneDrive\\Documents\\Coding\\kattis\\erase.cpp","tests":[{"id":1715093339179,"input":"1\n10001110101000001111010100001110\n01110001010111110000101011110001","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\muham\\OneDrive\\Documents\\Coding\\kattis\\erase.cpp","group":"local","local":true}
