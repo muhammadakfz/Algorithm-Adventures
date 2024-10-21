@@ -1,50 +1,28 @@
 #include <bits/stdc++.h>
-using namespace std;
 #define int long long
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
-#define FOR(i, a, b) for (int i = (a); i < (b); i++)
-#define FORI(i, a, b) for (int i = (a); i <= (b); i++)
-#define io_i ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+using namespace std;
 
-int f(int n) {
-    if(n == 0) return 1;
-    if(n == 1) return 1;
-    else return (n * f(n-1));
-}
+const int MOD = 1e5 + 7;
 
 signed main() {
-    io_i;
 
-    int n; 
-    cin >> n;
-    vector<int> a(n);
+    int n; cin >> n;
+    vector<int> a(MOD);
+
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        int x; cin >> x;
+        a[x] = i + 1;
     }
 
-    int m;
-    cin >> m;
-    vector<int> b(m);
-    for (int i = 0; i < m; i++) {
-        cin >> b[i];
-    }
-
+    int m; cin >> m;
     int vasya = 0, petya = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if(a[i] != b[j]) vasya++; 
-        }
-    }
-
     for (int i = 0; i < m; i++) {
-        for (int j = n-1; j >= 0 ; j--) {
-            if(b[i] != a[j]) petya++; 
-        }
+        int res; cin >> res;
+        vasya += a[res];
+        petya += n - a[res] + 1;
     }
 
-    cout << vasya << " " << petya;
-    
+    cout << vasya << " " << petya << endl;
 
     return 0;
 }
