@@ -6,23 +6,23 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> v(n+1);
-    for (int i = 1; i <= n; i++) cin >> v[i];
-    int idxmn, idxmx, tmp = INT_MAX, ans;
-    for (int i = 1; i <= n; i++) {
-        for (int j = i; j <= n; j++) {
-            if(i != j) {
-                ans = v[i] - v[j];
-                if(ans < tmp) {
-                    tmp = ans;
-                    idxmn = i;
-                    idxmx = j;
-                }
-            }
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int min_diff = abs(a[0] - a[n-1]);
+    int idx1 = 1, idx2 = n; 
+    for (int i = 0; i < n-1; i++) {
+        int diff = abs(a[i] - a[i+1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx1 = i+1;
+            idx2 = i+2;
         }
     }
 
-    cout << idxmn << " " << idxmx;    
+    cout << idx1 << " " << idx2 << endl;
 
     return 0;
 }

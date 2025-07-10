@@ -1,26 +1,24 @@
 #include <bits/stdc++.h>
-#define int long long
 using namespace std;
 
-signed main()
-{
+int main() {
 
     int n, m;
     cin >> n >> m;
-    vector<int> v(m);
-    for (int i = 0; i < m; i++)
-    {
-        cin >> v[i];
-    }
 
-    sort(v.begin(), v.end());
-
-    int ans = 1e18;
-    for (int i = 0; i + n - 1 < m; i++)
-    {
-        ans = min(ans, v[i + n - 1] - v[i]);
+    vector<int> a(m);
+    for (int i = 0; i < m; i++) {
+        cin >> a[i];
+    }    sort(a.begin(), a.end());
+    
+    int ans = INT_MAX;
+    
+    for (int i = 0; i <= m - n; i++) {
+        int diff = a[i + n - 1] - a[i];
+        ans = min(ans, diff);
     }
-    cout << ans;
+    
+    cout << ans << endl;
 
     return 0;
 }
