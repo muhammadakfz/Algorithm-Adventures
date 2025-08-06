@@ -15,7 +15,6 @@ signed main() {
     for (int i = 1; i <= n; i++) {
         sum += v[i];
     }
-
     
     vector<int> dp(sum+1, LLONG_MAX);
     dp[0] = 0;
