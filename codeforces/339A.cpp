@@ -2,25 +2,21 @@
 using namespace std;
 
 int main() {
+    string s;
+    cin >> s;
 
-    int n, m;
-    cin >> n >> m;
-    vector<int> a(m);
-    for (int i = 0; i < m; i++) {
-        cin >> a[i];
+    vector<char> nums;
+    for (char c : s) {
+        if (c != '+') nums.push_back(c);
     }
 
-    long long time = 0;
-    int pos = 1;
-    for (int i = 0; i < m; i++) {
-        if (a[i] >= pos) {
-            time += a[i] - pos;
-        } else {
-            time += n - (pos - a[i]);
-        }
-        pos = a[i];
+    sort(nums.begin(), nums.end());
+
+    for (int i = 0; i < nums.size(); ++i) {
+        cout << nums[i];
+        if (i + 1 < nums.size()) cout << '+';
     }
 
-    cout << time << endl;
+    cout << '\n';
     return 0;
 }

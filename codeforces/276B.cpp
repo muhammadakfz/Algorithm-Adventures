@@ -20,13 +20,13 @@ int main() {
 
     if (odd_count <= 1) {
         // String sudah palindrome, pemain yang harus move kalah
-        cout << "Second" << endl;
+        cout << "First" << endl;  // Alice menang
     } else {
         // Perlu (odd_count - 1) langkah untuk mencapai palindrome
         if ((odd_count - 1) % 2 == 1) {
-            cout << "First" << endl;   // Alice menang
+            cout << "Second" << endl;   // Alice menang
         } else {
-            cout << "Second" << endl;  // Bob menang
+            cout << "First" << endl;  // Bob menang
         }
     }
     

@@ -9,6 +9,7 @@ int main() {
         cout << a[0] - '0' + a[2] - '0' << endl;
     }
 
+    
 
     return 0;
 }

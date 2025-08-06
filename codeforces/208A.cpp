@@ -17,8 +17,6 @@ int main() {
         }
     }   
 
-    1, 
-
     cout << s1 << endl;
     
 
