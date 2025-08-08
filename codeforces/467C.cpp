@@ -2,5 +2,11 @@
 using namespace std;
 
 int main() {
-    int 
+    int n, m, k;
+    cin >> n >> m >> k;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) cin >> a[i];
+
+    dp
 }

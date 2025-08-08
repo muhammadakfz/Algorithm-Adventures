@@ -14,7 +14,16 @@
         "valarray": "cpp",
         "limits": "cpp",
         "algorithm": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__node_handle": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
