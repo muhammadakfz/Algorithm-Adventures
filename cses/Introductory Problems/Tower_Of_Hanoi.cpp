@@ -9,7 +9,6 @@ void hanoi(int n, int from, int to, int other) {
         cout << from << " " << to << endl;
         hanoi(n - 1, other, to, from);
     }   
-
 }
 
 int main() {

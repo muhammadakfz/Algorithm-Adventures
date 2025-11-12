@@ -44,7 +44,13 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "cstddef": "cpp"
+        "cstddef": "cpp",
+        "memory": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp",
+        "__tree": "cpp",
+        "map": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

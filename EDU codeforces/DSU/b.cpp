@@ -1,62 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
-#define FOR(i, a, b) for (int i = (a); i < (b); i++)
-#define FORI(i, a, b) for (int i = (a); i <= (b); i++)
-#define io_i ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-const int N = 3000001;
-
-vector<int> par, siz, mn, mx; 
+vector<int> par, sz, mn, mx;
 
 int find(int x) {
-    if(par[x] == x) return x;
-    return par[x] = find(par[x]);
+    if(par[x] != x) par[x] = find(par[x]);
+    return par[x];
 }
 
-void merge(int x, int y) {
-    int a = find(x);
-    int b = find(y);
-    if(a != b) {
-        if(siz[a] > siz[b]) swap(a, b);
-        par[b] = a;
-        siz[a] += siz[b];
-        mn[a] = min(mn[a], mn[b]);
-        mx[a] = max(mx[a], mx[b]);
+void union_sets(int x, int y) {
+    int root_x = find(x);
+    int root_y = find(y);
+
+    if(root_x < root_y) swap(root_x, root_y);
+    if(root_x != root_y) {
+        par[root_x] = root_y;
+        sz[root_y] += sz[root_x];
+        mn[root_y] = min(mn[root_y], mn[root_x]);
+        mx[root_y] = max(mx[root_y], mx[root_x]);
     }
 }
 
-signed main() {
-    io_i;
+int main() {
 
     int n, m;
     cin >> n >> m;
 
-    par.resize(n + 1);
-    mn.resize(n + 1);
-    mx.resize(n + 1);
-    siz.assign(n + 1, 1);
+    par.resize(n+1);
+    sz.resize(n+1, 1);
+    mn.resize(n+1);
+    mx.resize(n+1);
 
-    FORI(i, 1, n) {
-        par[i] = i;
-        mn[i] = i;
-        mx[i] = i;
-    }
+    iota(par.begin(), par.end(), 0);
+    iota(mn.begin(), mn.end(), 0);
+    iota(mx.begin(), mx.end(), 0);
 
-    while(m--) {
-        string s; cin >> s;
-        int u, v; cin >> u;
-        if(s == "union") {
-            cin >> v;
-            merge(u, v);
-        } else {
-            int x = find(u);
-            cout << mn[x] << " " << mx[x] << " " << siz[x] << "\n";
+    for (int i = 0; i < m; i++) {
+        string s;
+        cin >> s;
+
+        if (s == "union") {
+            int x, y;
+            cin >> x >> y;
+            union_sets(x, y);
+        }
+
+        if (s == "get") {
+            int x;
+            cin >> x;
+            int root_x = find(x);
+            cout << mn[root_x] << " " << mx[root_x] << " " << sz[root_x] << endl;
         }
     }
-    
 
     return 0;
 }
